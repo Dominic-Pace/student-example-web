@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../store/students/actions';
 
@@ -6,10 +6,41 @@ import LoadingScreen from '../../../components/loading/screen';
 import Table from './table';
 import { Container } from './styles';
 
-const EasySolution = ({ fetchAllStudents, isLoading, students }) => {
+const AllStudents = ({ fetchAllStudents, isLoading, students }) => {
   useEffect(() => {
     fetchAllStudents();
   }, [fetchAllStudents]);
+
+  const columns = useMemo(
+    () => [
+      {
+        Header: 'Name',
+        columns: [
+          {
+            Header: 'First Name',
+            accessor: 'firstName',
+          },
+          {
+            Header: 'Last Name',
+            accessor: 'lastName',
+          },
+        ],
+      },
+      {
+        Header: 'Info',
+        columns: [{
+          Header: 'Gender',
+          accessor: 'gender',
+        },
+          {
+            Header: 'Date of Birth',
+            accessor: 'dateOfBirth',
+          },
+        ],
+      },
+    ],
+    []
+  );
 
   if (isLoading) {
     return (
@@ -18,7 +49,7 @@ const EasySolution = ({ fetchAllStudents, isLoading, students }) => {
   }
   return (
     <Container>
-      <Table students={students}/>
+      <Table columns={columns} data={students}/>
     </Container>
   )
 };
@@ -33,4 +64,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { ...actions }
-)(EasySolution);
+)(AllStudents);

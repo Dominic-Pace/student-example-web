@@ -1,10 +1,11 @@
-import React from 'react';
-import { withTheme } from 'styled-components';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import { CircleLoader } from 'react-spinners';
 
 import { Container } from './styles';
 
-export const LoadingScreen = ({ theme }) => {
+export const LoadingScreen = () => {
+  const theme = useContext(ThemeContext);
   return (
     <Container>
       <CircleLoader sizeUnit="px" size={24} color={theme.colors.primary} loading />
@@ -12,4 +13,4 @@ export const LoadingScreen = ({ theme }) => {
   );
 };
 
-export default withTheme(LoadingScreen);
+export default LoadingScreen;

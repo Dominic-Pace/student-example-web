@@ -30,3 +30,7 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const StyledLink = styled.div`
+  color: ${props => props.theme.colors.black};
+`;
