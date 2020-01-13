@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const FullScreenContainer = styled.div`
+export const Container = styled.div`
   align-items: center;
   display: flex;
-  height: 80vh;
+  height: 40vh;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
 `;

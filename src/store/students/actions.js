@@ -10,13 +10,13 @@ import {
 export const fetchAllStudents = () => dispatch => {
   dispatch({ type: FETCH_ALL_STUDENTS_REQUEST });
 
-  const fetchAllSTUDENTSConfig = {
+  const fetchAllStudentsConfig = {
     baseURL: 'http://localhost:3005',
     method: 'get',
     url: '/students',
   };
 
-  return axios(fetchAllSTUDENTSConfig)
+  return axios(fetchAllStudentsConfig)
     .then(res => {
       dispatch({
         type: FETCH_ALL_STUDENTS_SUCCESS,

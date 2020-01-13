@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 15vw;
+  width: 15%;
 `;
 
 export const NavItem = styled.div`

@@ -2,13 +2,13 @@ import React from 'react';
 import { withTheme } from 'styled-components';
 import { CircleLoader } from 'react-spinners';
 
-import { FullScreenContainer } from './styles';
+import { Container } from './styles';
 
 export const LoadingScreen = ({ theme }) => {
   return (
-    <FullScreenContainer>
+    <Container>
       <CircleLoader sizeUnit="px" size={24} color={theme.colors.primary} loading />
-    </FullScreenContainer>
+    </Container>
   );
 };
 

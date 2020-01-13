@@ -13,6 +13,8 @@ import Router from './core';
 
 import * as serviceWorker from './serviceWorker';
 
+import './style.css';
+
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
 const store = createStoreWithMiddleware(
